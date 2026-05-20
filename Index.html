@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Columbus: My Home</title>
+  <link rel="stylesheet" href="TG.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo">CBUS Guide</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#discover">Our City</a></li>
+        <li><a href="#list">The Spots</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home">
+    <h1>Columbus, Ohio</h1>
+    <p>Everything I've learned growing up in the capital city.</p>
+  </header>
+
+  <main>
+    <section id="discover">
+      <h2>Why stay here?</h2>
+      <p>I've lived in Columbus my whole life. I've only left Ohio once, and honestly? I don't need to go anywhere else. This city has grown up with me. From the way downtown has transformed into a real food scene to the fact that we have the best parks, it feels like home in a way nowhere else could. It's affordable, it's friendly, and there is always something new to find in the neighborhoods.</p>
+    </section>
+
+    <section id="list">
+<h2 id="section-title">10 Must-Visit Places</h2>
+      <div class="card-grid">
+        <div class="card"><h3 class="card-title">Scioto Mile</h3><p class="card-desc">My go-to spot for a walk; the skyline view never gets old.</p></div>
+        <div class="card"><h3 class="card-title">Columbus Zoo</h3><p class="card-desc">An absolute classic, been going here since I was a kid.</p></div>
+        <div class="card"><h3 class="card-title">Short North</h3><p class="card-desc">The place to be for art, galleries, and just people-watching.</p></div>
+        <div class="card"><h3 class="card-title">COSI</h3><p class="card-desc">It's science, but even as an adult, it's still fun to visit.</p></div>
+        <div class="card"><h3 class="card-title">Franklin Park</h3><p class="card-desc">The conservatory glass house is beautiful year-round.</p></div>
+        <div class="card"><h3 class="card-title">Ohio Stadium</h3><p class="card-desc">You haven't really experienced Columbus until you've heard a game here.</p></div>
+        <div class="card"><h3 class="card-title">Easton</h3><p class="card-desc">It’s huge, it’s always busy, and it has every store you'd need.</p></div>
+        <div class="card"><h3 class="card-title">North Market</h3><p class="card-desc">This is where I go when I want the best local food.</p></div>
+        <div class="card"><h3 class="card-title">Goodale Park</h3><p class="card-desc">My favorite quiet place to sit and look at the trees.</p></div>
+        <div class="card"><h3 class="card-title">German Village</h3><p class="card-desc">The brick streets and houses are the most charming part of the city.</p></div>
+      </div>
+    </section>
+
+    <div style="text-align: center; margin-top: 40px;">
+  <button id="toggle-btn" class="action-btn" onclick="toggleContent()">See Hidden Gems instead!</button>
+</div>
+  </main>
+<script>
+  // We keep track of which view we are on
+  let showingHidden = false;
+
+  function toggleContent() {
+    const titles = document.querySelectorAll('.card-title');
+    const descs = document.querySelectorAll('.card-desc');
+    const sectionTitle = document.getElementById('section-title');
+    const toggleBtn = document.getElementById('toggle-btn');
+
+    // 1. Define the TWO lists of data
+    const mustVisitTitles = ["Scioto Mile", "Columbus Zoo", "Short North", "COSI", "Franklin Park", "Ohio Stadium", "Easton", "North Market", "Goodale Park", "German Village"];
+    const mustVisitDescs = ["Riverfront parks and city skyline views.", "World-class exhibits and family fun.", "Arts, galleries, and boutiques.", "Hands-on science and discovery.", "Beautiful botanical gardens.", "The heart of Buckeyes football.", "Shopping, dining, and movies.", "Best local food and snacks.", "Historic green space near downtown.", "Historic charm and cobblestone streets."];
+
+    const hiddenTitles = ["Magic Mountain", "Lazer Kraze", "Tactical Paintball", "Pins Mechanical Co.", "Scene75", "16-Bit Arcade", "Skate Zone 71", "Blue Jackets Game", "Crew Soccer Match", "Sky Zone"];
+    const hiddenDescs = ["The go-to for go-karts and mini-golf.", "High-energy laser tag for the squad.", "Adrenaline-pumping paintball match.", "Duckpin bowling and patio vibes.", "Massive indoor center for every game.", "Classic retro arcade games.", "Roller skating throwback.", "NHL energy is just unmatched.", "Catching a soccer match downtown.", "Trampoline park where we end up exhausted."];
+
+    // 2. Decide which list to use based on the 'showingHidden' variable
+    if (showingHidden) {
+      // Switch back to "Must Visit"
+      for (let i = 0; i < titles.length; i++) {
+        titles[i].textContent = mustVisitTitles[i];
+        descs[i].textContent = mustVisitDescs[i];
+        titles[i].style.color = "#333"; // Reset color
+      }
+      sectionTitle.textContent = "10 Must-Visit Places";
+      toggleBtn.textContent = "See Hidden Gems instead!";
+      showingHidden = false;
+    } else {
+      // Switch to "Hidden Gems"
+      for (let i = 0; i < titles.length; i++) {
+        titles[i].textContent = hiddenTitles[i];
+        descs[i].textContent = hiddenDescs[i];
+        titles[i].style.color = "#e74c3c"; // Highlighted color
+      }
+      sectionTitle.textContent = "10 Hidden Gems";
+      toggleBtn.textContent = "Back to Must-Visit Places";
+      showingHidden = true;
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
